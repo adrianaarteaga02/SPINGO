@@ -1,26 +1,26 @@
 package ch.adrart.zli.spingo;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
-import android.database.Cursor;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import java.util.ArrayList;
+import java.util.List;
 
 public class category extends AppCompatActivity {
 
-    private static final String TAG = "category";
-    DatabaseHelper mDatabaseHelper = new DatabaseHelper(this);
-
+    DBHelper dbHelper = new DBHelper(this);
     public static final String sEXTRA_TEXT = "com.example.application.example.EXTRA_TEXT";
+    public static final String sEXTRA_NUMBER = "com.example.application.example.EXTRA_NUMBER";
+    public int iCategory;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,48 +30,64 @@ public class category extends AppCompatActivity {
         //fill ListView with already existing elements
         this.addCategoriesToList();
 
-        //onclick add element and switching to add_attribute
-        Button btnAdd = (Button) findViewById(R.id.btn_AddElement);
-        btnAdd.setOnClickListener(new View.OnClickListener() {
+        //get clicked category
+        ListView lv = findViewById(R.id.lv_CategoryList);
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onClick(View v) {
-                openActivityAddElements();
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                // Get the selected item text from ListView
+                String sSelectedName = (String) parent.getItemAtPosition(position);
+                iCategory = dbHelper.getIDFromSelectedCategory(sSelectedName);
+
+                Intent intent = new Intent(category.this, elements.class);
+                intent.putExtra(sEXTRA_NUMBER, iCategory);
+                startActivity(intent);
             }
         });
-
     }
 
+    //get data from database and add to ListView
     private void addCategoriesToList() {
-        Log.d(TAG, "addCategoriesToList: Displaying data in the ListView");
+        Log.d("category", "addCategoriesToList: Displaying data in the ListView");
 
         //get the data and append to the list
-        Cursor cursor = mDatabaseHelper.getData("category");
-        ArrayList<String> listData = new ArrayList<>();
+        List<String> entries = dbHelper.getAllEntries(1, 0);
 
-        if (!cursor.moveToNext()){
+        if (entries.size() <= 0) {
             toastMessage("Here are currently no data ");
-        }else{
-
-            while (cursor.moveToNext()){
-                listData.add(cursor.getString(1));
-            }
-
-            ListView elementList = findViewById(R.id.lv_ElementList);
-            ListAdapter adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, listData);
+        } else {
+            ListView elementList = findViewById(R.id.lv_CategoryList);
+            ListAdapter adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, entries);
             elementList.setAdapter(adapter);
         }
     }
 
-    public void openActivityAddElements() {
-        String text = "category;elements";
+    //open activity add_attribute
+    public void openActivityAddElements(View view) {
+        String text = "category;category"; //String text = "category;elements";
 
         Intent intent = new Intent(this, add_attribute.class);
         intent.putExtra(sEXTRA_TEXT, text);
         startActivity(intent);
     }
 
-    private void toastMessage(String sMessage){
+    //show toast message
+    private void toastMessage(String sMessage) {
         Toast.makeText(this, sMessage, Toast.LENGTH_SHORT).show();
+    }
+
+
+    ////########## elements
+    //open activity spin
+    public void openActivitySpin(View view) {
+        Intent intent = new Intent(this, spin.class);
+        intent.putExtra(sEXTRA_NUMBER, iCategory);
+        startActivity(intent);
+    }
+
+    public void jumpBack(View view) {
+        Intent intent = new Intent(this, category.class);
+        startActivity(intent);
     }
 
 }

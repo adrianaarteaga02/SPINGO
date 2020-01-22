@@ -11,7 +11,7 @@
     android:paddingTop="0dp"
     android:paddingRight="0dp"
     android:paddingBottom="0dp"
-    tools:context=".spin">
+    tools:context=".test">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -22,18 +22,17 @@
         <ImageView
             android:layout_width="50dp"
             android:layout_height="70dp"
+            android:foregroundGravity="left"
             android:background="@color/colorPrimary"
             android:contentDescription="back"
-            android:foregroundGravity="left"
-            android:onClick="jumpBack"
             android:src="@drawable/back" />
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="70dp"
+            android:foregroundGravity="right"
             android:background="@color/colorPrimary"
             android:contentDescription="Logo"
-            android:foregroundGravity="right"
             android:src="@drawable/logo" />
 
     </androidx.appcompat.widget.Toolbar>
@@ -47,8 +46,17 @@
         android:text="Category"
         android:textSize="30sp" />
 
+    <!--<TextView
+        android:id="@+id/lbl_SpinningName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Turning Element"
+        android:textSize="36sp"
+        android:textStyle="bold"/>-->
+
     <TextSwitcher
-        android:id="@+id/ts_SpinningElement"
+        android:id="@+id/textSwitcher"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inAnimation="@android:anim/slide_in_left"
@@ -59,7 +67,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
-        android:background="@color/colorAccent"
         android:foregroundGravity="right"
+        android:background="@color/colorAccent"
         android:text="SPIN" />
 </LinearLayout>

@@ -5,13 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
-    android:orientation="vertical"
     android:gravity="center_horizontal"
+    android:orientation="vertical"
     android:paddingLeft="0dp"
     android:paddingTop="0dp"
     android:paddingRight="0dp"
     android:paddingBottom="0dp"
-    tools:context=".MainActivity">
+    tools:context=".elements">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -22,17 +22,18 @@
         <ImageView
             android:layout_width="50dp"
             android:layout_height="70dp"
-            android:foregroundGravity="left"
             android:background="@color/colorPrimary"
             android:contentDescription="back"
+            android:foregroundGravity="left"
+            android:onClick="jumpBack"
             android:src="@drawable/back" />
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="70dp"
-            android:foregroundGravity="right"
             android:background="@color/colorPrimary"
             android:contentDescription="Logo"
+            android:foregroundGravity="right"
             android:src="@drawable/logo" />
     </androidx.appcompat.widget.Toolbar>
 
@@ -46,8 +47,7 @@
         <ListView
             android:id="@+id/lv_ElementList"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-        </ListView>
+            android:layout_height="wrap_content"></ListView>
     </TableRow>
 
     <LinearLayout
@@ -60,8 +60,8 @@
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
-            android:foregroundGravity="right"
             android:background="@color/colorAccent"
+            android:foregroundGravity="right"
             android:text="SPIN" />
 
         <Button

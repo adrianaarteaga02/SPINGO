@@ -11,21 +11,13 @@
     android:paddingTop="0dp"
     android:paddingRight="0dp"
     android:paddingBottom="0dp"
-    tools:context=".MainActivity">
+    tools:context=".category">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="450dp"
         android:layout_height="wrap_content"
         android:background="#2E2E35">
-
-        <ImageView
-            android:layout_width="50dp"
-            android:layout_height="70dp"
-            android:foregroundGravity="left"
-            android:background="@color/colorPrimary"
-            android:contentDescription="back"
-            android:src="@drawable/back" />
 
         <ImageView
             android:layout_width="wrap_content"
@@ -50,13 +42,39 @@
         </ListView>
     </TableRow>
 
-    <Button
+    <!--<Button
         android:id="@+id/btn_AddCategory"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:foregroundGravity="right"
-        android:text="Add Category"/>
+        android:text="Add Category"
+        android:onClick="openActivityAddElements"/>-->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_Spin"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:foregroundGravity="right"
+            android:background="@color/colorAccent"
+            android:text="SPIN"
+            android:onClick="openActivitySpin"/>
+
+        <Button
+            android:id="@+id/btn_AddCategory"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:foregroundGravity="right"
+            android:text="Add Category"
+            android:onClick="openActivityAddElements"/>
+    </LinearLayout>
 
 </LinearLayout>
 
