@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:paddingLeft="0dp"
+    android:paddingTop="0dp"
+    android:paddingRight="0dp"
+    android:paddingBottom="0dp"
+    tools:context=".MainActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="450dp"
+        android:layout_height="wrap_content"
+        android:background="#2E2E35">
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="70dp"
+            android:foregroundGravity="left"
+            android:background="@color/colorPrimary"
+            android:contentDescription="back"
+            android:src="@drawable/back" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="70dp"
+            android:foregroundGravity="right"
+            android:background="@color/colorPrimary"
+            android:contentDescription="Logo"
+            android:src="@drawable/logo" />
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <TextView
+        android:id="@+id/lbl_CategoryName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="200dp"
+        android:gravity="center"
+        android:text="Category"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/lbl_SpinningName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Turning Element"
+        android:textSize="36sp"
+        android:textStyle="bold"/>
+
+    <Button
+        android:id="@+id/btn_Spin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="280dp"
+        android:foregroundGravity="right"
+        android:background="@color/colorAccent"
+        android:text="SPIN" />
+</LinearLayout>

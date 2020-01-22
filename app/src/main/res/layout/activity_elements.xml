@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:paddingLeft="0dp"
+    android:paddingTop="0dp"
+    android:paddingRight="0dp"
+    android:paddingBottom="0dp"
+    tools:context=".MainActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="450dp"
+        android:layout_height="wrap_content"
+        android:background="#2E2E35">
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="70dp"
+            android:foregroundGravity="left"
+            android:background="@color/colorPrimary"
+            android:contentDescription="back"
+            android:src="@drawable/back" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="70dp"
+            android:foregroundGravity="right"
+            android:background="@color/colorPrimary"
+            android:contentDescription="Logo"
+            android:src="@drawable/logo" />
+    </androidx.appcompat.widget.Toolbar>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="450dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginRight="50dp">
+
+        <ListView
+            android:id="@+id/lv_ElementList"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </ListView>
+    </TableRow>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_Spin"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:foregroundGravity="right"
+            android:background="@color/colorAccent"
+            android:text="SPIN" />
+
+        <Button
+            android:id="@+id/btn_AddElement"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:foregroundGravity="left"
+            android:text="Add Element" />
+    </LinearLayout>
+
+</LinearLayout>
